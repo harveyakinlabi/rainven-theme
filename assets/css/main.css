@@ -722,7 +722,6 @@ html[data-theme="dark"] .button-primary:hover {
 }
 
 .latest-posts .section-heading,
-.latest-post-list,
 .latest-posts .load-more {
     width: min(100% - 48px, 46rem);
     margin-inline: auto;
@@ -733,6 +732,8 @@ html[data-theme="dark"] .button-primary:hover {
 }
 
 .latest-post-list {
+    width: min(100% - 48px, 46rem);
+    margin-inline: auto;
     align-items: center;
 }
 
@@ -3396,7 +3397,7 @@ html[data-theme="dark"] .footer-theme-toggle:hover {
     }
 
     .related-posts > h2,
-    .related-post-list,
+    .related-post-list:not(.latest-post-list),
     .related-post-card,
     .related-post-image-link {
         width: 100%;
@@ -3498,8 +3499,12 @@ html[data-theme="dark"] .footer-theme-toggle:hover {
     }
 
     .latest-posts .section-heading,
-    .latest-post-list,
     .latest-posts .load-more {
+        width: min(100% - 32px, 46rem);
+        margin-inline: auto;
+    }
+
+    .latest-post-list {
         width: min(100% - 32px, 46rem);
         margin-inline: auto;
     }
