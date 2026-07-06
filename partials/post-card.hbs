@@ -1,6 +1,6 @@
 {{#match variant "related"}}
     <article class="related-post-card" data-post-card>
-        {{> "post-card-media" link_class="related-post-image-link" image_class="related-post-image"}}
+        {{> "post-card-media" image_link_class="related-post-image-link" image_class="related-post-image"}}
 
         <div class="related-post-content">
             <h2 class="related-post-title">
@@ -17,7 +17,7 @@
     </article>
 {{else}}
     <article class="post-card {{post_class}}" data-post-card>
-        {{> "post-card-media" link_class="post-card-image-link" image_class="post-card-image"}}
+        {{> "post-card-media" image_link_class="post-card-image-link" image_class="post-card-image"}}
 
         <div class="post-card-content">
             {{#if primary_tag}}

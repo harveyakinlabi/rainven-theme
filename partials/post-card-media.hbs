@@ -1,5 +1,5 @@
 {{#if feature_image}}
-    <a class="{{link_class}} progressive-image" href="{{url}}" aria-label="{{title}}">
+    <a class="{{image_link_class}} progressive-image" href="{{url}}" aria-label="{{title}}">
         <img
             class="{{image_class}} progressive-image-img"
             src="{{img_url feature_image size="xxs"}}"
@@ -11,7 +11,7 @@
         <span class="progressive-image-blur" aria-hidden="true"></span>
     </a>
 {{else}}
-    <a class="{{link_class}}" href="{{url}}" aria-label="{{title}}" data-post-card-image-fallback hidden></a>
+    <a class="{{image_link_class}}" href="{{url}}" aria-label="{{title}}" data-post-card-image-fallback hidden></a>
     <template data-post-card-image-source>
         {{{content}}}
     </template>
