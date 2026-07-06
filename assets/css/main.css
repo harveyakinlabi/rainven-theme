@@ -353,7 +353,6 @@ body.has-nav-cta .site-nav-right .nav > li:last-child a:hover {
     flex: 0 0 auto;
 }
 
-.nav-search,
 .theme-toggle {
     width: 40px;
     height: 40px;
@@ -365,14 +364,7 @@ body.has-nav-cta .site-nav-right .nav > li:last-child a:hover {
     background: transparent;
     border: 0;
     border-radius: 0;
-}
-
-.theme-toggle {
     position: relative;
-}
-
-.nav-search:hover {
-    color: var(--color-text);
 }
 
 .theme-toggle:hover {
@@ -3268,7 +3260,6 @@ html[data-theme="dark"] .footer-theme-toggle:hover {
         gap: 2px;
     }
 
-    .nav-search,
     .theme-toggle,
     .menu-toggle {
         width: 38px;
@@ -3607,7 +3598,6 @@ html[data-theme="dark"] .footer-theme-toggle:hover {
         min-height: 64px;
     }
 
-    .nav-search,
     .theme-toggle,
     .menu-toggle {
         width: 38px;
@@ -3911,7 +3901,6 @@ html[data-theme="dark"] .footer-theme-toggle:hover {
         gap: 6px;
     }
 
-    .nav-search,
     .theme-toggle,
     .menu-toggle {
         width: 36px;
