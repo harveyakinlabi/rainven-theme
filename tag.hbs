@@ -1,34 +1,6 @@
 {{!< default}}
 
-<section class="site-hero" aria-labelledby="site-hero-title">
-    <div class="site-hero-avatar">
-        {{#if feature_image}}
-            <div class="progressive-image">
-                <img
-                    class="progressive-image-img"
-                    src="{{img_url feature_image size="xxs"}}"
-                    data-progressive-src="{{img_url feature_image size="m"}}"
-                    alt="{{name}}"
-                    loading="eager"
-                    decoding="async"
-                >
-                <span class="progressive-image-blur" aria-hidden="true"></span>
-            </div>
-        {{else}}
-            <span
-                data-author-initials
-                data-author-name="{{name}}"
-                aria-hidden="true"
-            ></span>
-        {{/if}}
-    </div>
-
-    <h1 id="site-hero-title">{{name}}</h1>
-
-    {{#if description}}
-        <p class="site-hero-description">{{description}}</p>
-    {{/if}}
-</section>
+{{> "site-hero"}}
 
 {{> "post-feed"
     feed_class="latest-posts"
