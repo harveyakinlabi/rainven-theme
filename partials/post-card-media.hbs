@@ -1,0 +1,18 @@
+{{#if feature_image}}
+    <a class="{{link_class}} progressive-image" href="{{url}}" aria-label="{{title}}">
+        <img
+            class="{{image_class}} progressive-image-img"
+            src="{{img_url feature_image size="xxs"}}"
+            data-progressive-src="{{img_url feature_image size="l"}}"
+            alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+            loading="lazy"
+            decoding="async"
+        >
+        <span class="progressive-image-blur" aria-hidden="true"></span>
+    </a>
+{{else}}
+    <a class="{{link_class}}" href="{{url}}" aria-label="{{title}}" data-post-card-image-fallback hidden></a>
+    <template data-post-card-image-source>
+        {{{content}}}
+    </template>
+{{/if}}

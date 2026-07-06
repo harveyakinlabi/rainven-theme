@@ -1,0 +1,107 @@
+{{!< default}}
+
+{{#post}}
+<article class="{{post_class}}{{#match @custom.post_content_width "Narrow"}} post-width-narrow{{/match}}{{#match @custom.post_content_width "Wide"}} post-width-wide{{/match}}">
+    <header class="post-header">
+        <a class="post-backlink" href="{{@site.url}}">&larr; all posts</a>
+
+        <h1 class="post-title">{{title}}</h1>
+
+        <div class="post-meta">
+            {{#if primary_author.profile_image}}
+                {{#if @custom.link_post_authors}}
+                    <a class="post-author-avatar-link" href="{{primary_author.url}}" aria-label="{{primary_author.name}}">
+                        <img
+                            class="post-author-avatar"
+                            src="{{primary_author.profile_image}}"
+                            alt="{{primary_author.name}}"
+                        >
+                    </a>
+                {{else}}
+                    <span class="post-author-avatar-link" aria-label="{{primary_author.name}}">
+                        <img
+                            class="post-author-avatar"
+                            src="{{primary_author.profile_image}}"
+                            alt="{{primary_author.name}}"
+                        >
+                    </span>
+                {{/if}}
+            {{else}}
+                {{#if @custom.link_post_authors}}
+                    <a class="post-author-avatar-link" href="{{primary_author.url}}" aria-label="{{primary_author.name}}">
+                        <span
+                            class="post-author-avatar-initials"
+                            data-author-initials
+                            data-author-name="{{primary_author.name}}"
+                            aria-hidden="true"
+                        ></span>
+                    </a>
+                {{else}}
+                    <span class="post-author-avatar-link" aria-label="{{primary_author.name}}">
+                        <span
+                            class="post-author-avatar-initials"
+                            data-author-initials
+                            data-author-name="{{primary_author.name}}"
+                            aria-hidden="true"
+                        ></span>
+                    </span>
+                {{/if}}
+            {{/if}}
+
+            <div class="post-meta-content">
+                {{#if @custom.link_post_authors}}
+                    <a class="post-author-name" href="{{primary_author.url}}">{{primary_author.name}}</a>
+                {{else}}
+                    <span class="post-author-name">{{primary_author.name}}</span>
+                {{/if}}
+                <time class="post-date" datetime="{{date published_at format="YYYY-MM-DD"}}">
+                    {{date published_at format="MMMM DD, YYYY"}}
+                </time>
+            </div>
+        </div>
+    </header>
+
+    {{> "feature-image" type="post"}}
+
+    <section class="post-content">
+        {{{content}}}
+    </section>
+
+    {{#if @custom.show_post_subscribe}}
+        {{> "subscribe-cta"}}
+    {{/if}}
+
+    <footer class="post-footer-meta">
+        {{#if @custom.show_post_tags}}
+            {{#if tags}}
+                <section class="post-taxonomy" aria-labelledby="post-tags-title">
+                    <h3 id="post-tags-title">Tags</h3>
+                    <div class="post-tags" aria-label="Post tags">
+                        {{#foreach tags}}
+                            <a href="{{url}}">{{name}}</a>
+                        {{/foreach}}
+                    </div>
+                </section>
+            {{/if}}
+        {{/if}}
+
+        {{> "share-buttons"}}
+    </footer>
+
+    {{#if primary_tag}}
+        {{#get "posts" filter="id:-{{id}}+tag:{{primary_tag.slug}}" include="authors,tags" limit="3" as |related_posts|}}
+            {{#if related_posts}}
+                <section class="related-posts" aria-labelledby="related-posts-title">
+                    <h2 id="related-posts-title">You Might Also Like</h2>
+
+                    <div class="related-post-list">
+                        {{#foreach related_posts}}
+                            {{> "post-card" variant="related"}}
+                        {{/foreach}}
+                    </div>
+                </section>
+            {{/if}}
+        {{/get}}
+    {{/if}}
+</article>
+{{/post}}

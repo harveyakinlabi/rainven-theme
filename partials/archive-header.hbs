@@ -1,0 +1,11 @@
+<section class="{{header_class}}">
+    {{#if profile_image}}
+        <img{{#if image_class}} class="{{image_class}}"{{/if}} src="{{profile_image}}" alt="{{title}}">
+    {{/if}}
+
+    <h1>{{title}}</h1>
+
+    {{#if description}}
+        <p{{#if description_class}} class="{{description_class}}"{{/if}}>{{description}}</p>
+    {{/if}}
+</section>

@@ -1,0 +1,21 @@
+<section class="post-feed{{#if feed_class}} {{feed_class}}{{/if}}"{{#if feed_id}} id="{{feed_id}}"{{/if}}{{#if labelledby}} aria-labelledby="{{labelledby}}"{{else}}{{#if label}} aria-label="{{label}}"{{/if}}{{/if}}>
+    {{#if heading}}
+        <div class="section-heading">
+            <h2 id="{{labelledby}}">{{heading}}</h2>
+        </div>
+    {{/if}}
+
+    <div class="{{#if list_class}}{{list_class}}{{else}}post-grid{{/if}}">
+        {{#match card_variant "related"}}
+            {{#foreach posts}}
+                {{> post-card variant="related"}}
+            {{/foreach}}
+        {{else}}
+            {{#foreach posts}}
+                {{> post-card}}
+            {{/foreach}}
+        {{/match}}
+    </div>
+
+    {{> "load-more"}}
+</section>

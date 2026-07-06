@@ -1,0 +1,44 @@
+{{#match variant "related"}}
+    <article class="related-post-card" data-post-card>
+        {{> "post-card-media" link_class="related-post-image-link" image_class="related-post-image"}}
+
+        <div class="related-post-content">
+            <h2 class="related-post-title">
+                <a href="{{url}}">{{title}}</a>
+            </h2>
+
+            <footer class="related-post-meta">
+                {{#if primary_author}}
+                    <span>{{primary_author.name}}</span>
+                {{/if}}
+                <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMMM D, YYYY"}}</time>
+            </footer>
+        </div>
+    </article>
+{{else}}
+    <article class="post-card {{post_class}}" data-post-card>
+        {{> "post-card-media" link_class="post-card-image-link" image_class="post-card-image"}}
+
+        <div class="post-card-content">
+            {{#if primary_tag}}
+                <a class="post-card-tag" href="{{primary_tag.url}}">{{primary_tag.name}}</a>
+            {{/if}}
+
+            <h2 class="post-card-title">
+                <a href="{{url}}">{{title}}</a>
+            </h2>
+
+            {{#if excerpt}}
+                <p class="post-card-excerpt">{{excerpt}}</p>
+            {{/if}}
+
+            <footer class="post-card-meta">
+                {{#if primary_author}}
+                    <span>{{primary_author.name}}</span>
+                {{/if}}
+                <span>{{date format="MMM D, YYYY"}}</span>
+                <span>{{reading_time}}</span>
+            </footer>
+        </div>
+    </article>
+{{/match}}

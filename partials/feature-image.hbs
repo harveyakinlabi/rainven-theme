@@ -1,0 +1,49 @@
+{{#match type "post"}}
+    {{#match @custom.post_feature_image "Auto from first image"}}
+        {{#if feature_image}}
+            <figure class="post-feature-image" data-post-feature>
+                <img
+                    src="{{img_url feature_image size="xl"}}"
+                    alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                    loading="eager"
+                    decoding="async"
+                >
+                {{#if feature_image_caption}}
+                    <figcaption>{{{feature_image_caption}}}</figcaption>
+                {{/if}}
+            </figure>
+        {{else}}
+            <figure class="post-feature-image" data-post-feature-fallback data-post-title="{{title}}" hidden></figure>
+        {{/if}}
+    {{/match}}
+
+    {{#match @custom.post_feature_image "Ghost featured image only"}}
+        {{#if feature_image}}
+            <figure class="post-feature-image" data-post-feature>
+                <img
+                    src="{{img_url feature_image size="xl"}}"
+                    alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                    loading="eager"
+                    decoding="async"
+                >
+                {{#if feature_image_caption}}
+                    <figcaption>{{{feature_image_caption}}}</figcaption>
+                {{/if}}
+            </figure>
+        {{/if}}
+    {{/match}}
+{{else}}
+    {{#if feature_image}}
+        <figure class="page-feature-image">
+            <img
+                src="{{img_url feature_image size="xl"}}"
+                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                loading="eager"
+                decoding="async"
+            >
+            {{#if feature_image_caption}}
+                <figcaption>{{{feature_image_caption}}}</figcaption>
+            {{/if}}
+        </figure>
+    {{/if}}
+{{/match}}

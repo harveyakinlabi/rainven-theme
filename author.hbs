@@ -1,0 +1,14 @@
+{{!< default}}
+
+<div class="author-archive">
+    {{> "archive-header"
+        header_class="author-profile"
+        profile_image=primary_author.profile_image
+        image_class="author-profile-image"
+        title=primary_author.name
+        description=primary_author.bio
+        description_class="author-bio"
+    }}
+
+    {{> "post-feed" label="Author posts"}}
+</div>
