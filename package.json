@@ -47,13 +47,12 @@
       "post_feature_image": {
         "type": "select",
         "options": [
-          "Auto from first image",
           "Ghost featured image only",
           "Hide on post pages"
         ],
-        "default": "Auto from first image",
+        "default": "Ghost featured image only",
         "group": "post",
-        "description": "Choose how featured images display on post pages"
+        "description": "Choose whether Ghost featured images display on post pages"
       },
       "show_post_tags": {
         "type": "boolean",

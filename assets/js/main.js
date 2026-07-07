@@ -6,7 +6,6 @@
     var desktopQuery = window.matchMedia('(min-width: 768px)');
     var menuTimer;
     var authorInitials = document.querySelectorAll('[data-author-initials]');
-    var fallbackFeatureImage = document.querySelector('[data-post-feature-fallback]');
     var progressiveObserver;
     var contentTogglesReady = false;
 
@@ -18,16 +17,6 @@
         return Array.from(root.querySelectorAll('img')).find(function (image) {
             return image.getAttribute('src') && !image.closest('.kg-gallery-card, .kg-bookmark-card, .kg-product-card, .kg-file-card, .kg-audio-card');
         });
-    }
-
-    function captionForImage(image) {
-        var sourceFigure = image && image.closest('figure');
-
-        if (!sourceFigure) {
-            return null;
-        }
-
-        return sourceFigure.querySelector('figcaption');
     }
 
     function promotedClone(image, className, fallbackAlt) {
@@ -889,37 +878,6 @@
 
         avatar.textContent = initials.toUpperCase();
     });
-
-    if (fallbackFeatureImage) {
-        var firstContentImage = firstUsableImage(document.querySelector('.post-content'));
-
-        if (firstContentImage) {
-            var promotedImage = promotedClone(firstContentImage, null, fallbackFeatureImage.getAttribute('data-post-title'));
-            var sourceCaption = captionForImage(firstContentImage);
-            promotedImage.loading = 'eager';
-
-            fallbackFeatureImage.appendChild(promotedImage);
-
-            if (sourceCaption) {
-                fallbackFeatureImage.appendChild(sourceCaption.cloneNode(true));
-            }
-
-            fallbackFeatureImage.hidden = false;
-
-            var sourceFigure = firstContentImage.closest('figure');
-
-            if (sourceFigure && sourceFigure.closest('.post-content') && sourceFigure.querySelectorAll('img').length === 1) {
-                sourceFigure.remove();
-            } else {
-                var imageParent = firstContentImage.parentElement;
-                firstContentImage.remove();
-
-                if (imageParent && imageParent.matches('p') && imageParent.textContent.trim() === '') {
-                    imageParent.remove();
-                }
-            }
-        }
-    }
 
     initPostCardImageFallbacks();
     initProductCardImageFrames();
