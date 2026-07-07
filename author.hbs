@@ -2,11 +2,15 @@
 
 {{> "site-hero"}}
 
-{{> "post-feed"
-    feed_class="latest-posts"
-    feed_id="latest"
-    labelledby="latest-posts-title"
-    heading="Latest Posts"
-    list_class="latest-post-list related-post-list"
-    card_variant="related"
-}}
+{{#author}}
+    {{> "post-feed"
+        feed_class="latest-posts"
+        feed_id="author-posts"
+        labelledby="author-posts-title"
+        heading=name
+        posts=../posts
+        pagination=../pagination
+        list_class="latest-post-list related-post-list"
+        card_variant="related"
+    }}
+{{/author}}

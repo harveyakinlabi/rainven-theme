@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{meta_title}}</title>
+    {{#if @site.icon}}
+        <link rel="icon" href="{{@site.icon}}" type="image/png">
+        <link rel="apple-touch-icon" href="{{@site.icon}}">
+    {{/if}}
     <script>
         (function () {
             var mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
