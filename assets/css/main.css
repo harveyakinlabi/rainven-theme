@@ -1175,17 +1175,6 @@ a.post-author-name:hover {
     margin-top: 0;
 }
 
-.post-content > p:first-of-type::first-letter,
-.page-content > p:first-of-type::first-letter {
-    float: left;
-    margin: 0.08em 0.12em 0 0;
-    color: var(--color-heading);
-    font-family: var(--font-heading);
-    font-size: 4.15em;
-    font-weight: 700;
-    line-height: 0.78;
-}
-
 :where(.post-content, .page-content) :where(figure:not(.kg-width-wide):not(.kg-width-full), .kg-card:not(.kg-width-wide):not(.kg-width-full)) {
     margin-right: auto;
     margin-left: auto;
@@ -3812,12 +3801,6 @@ html[data-theme="dark"] .footer-theme-toggle:hover {
     .page-content .kg-toggle-card[data-kg-toggle-state="open"] .kg-toggle-content {
         padding-top: 0.49rem;
         padding-bottom: 0.92rem;
-    }
-
-    .post-content > p:first-of-type::first-letter,
-    .page-content > p:first-of-type::first-letter {
-        font-size: 3.65em;
-        line-height: 0.82;
     }
 
     :where(.post-content, .page-content) .kg-bookmark-card a.kg-bookmark-container {
